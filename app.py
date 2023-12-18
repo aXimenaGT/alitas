@@ -68,17 +68,18 @@ st.title('MR. ALITAS')
 st.divider()
 st.subheader('Menú')
 
-col1, col2, col3 = st.columns([2,1,1])
-
-with col1:
-  producto = st.selectbox('Selecciona un producto', list(productos.keys()))
+vendedor = st.selectbox('Selecciona un vendedor', ['VENDEDOR 1', 'VENDEDOR 2', 'VENDEDOR 3'])
+  
+col2, col3, col4 = st.columns([2,1,1])
 
 with col2:
-  cantidad = st.number_input('Cantidad', min_value=1, max_value=200, value=1)
+  producto = st.selectbox('Selecciona un producto', list(productos.keys()))
 
 with col3:
-  title = st.text_input('Precio', format_precio(productos[producto]), disabled=True)
+  cantidad = st.number_input('Cantidad', min_value=1, max_value=200, value=1)
 
+with col4:
+  title = st.text_input('Precio', format_precio(productos[producto]), disabled=True)
 
 
 if st.button('Agregar al carrito'):
